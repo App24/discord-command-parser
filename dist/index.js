@@ -20,6 +20,26 @@ function getArguments(body) {
             arg = str.slice(1, str.indexOf('"', 1));
             str = str.slice(str.indexOf('"', 1) + 1);
         }
+        else if (str.startsWith('“') && str.indexOf('”', 1) > 0) {
+            arg = str.slice(1, str.indexOf('”', 1));
+            str = str.slice(str.indexOf('“', 1) + 1);
+        }
+        else if (str.startsWith('„') && str.indexOf('”', 1) > 0) {
+            arg = str.slice(1, str.indexOf('”', 1));
+            str = str.slice(str.indexOf('„', 1) + 1);
+        }
+        else if (str.startsWith('„') && str.indexOf('„', 1) > 0) {
+            arg = str.slice(1, str.indexOf('„', 1));
+            str = str.slice(str.indexOf('„', 1) + 1);
+        }
+        else if (str.startsWith('”') && str.indexOf('”', 1) > 0) {
+            arg = str.slice(1, str.indexOf('”', 1));
+            str = str.slice(str.indexOf('”', 1) + 1);
+        }
+        else if (str.startsWith('“') && str.indexOf('“', 1) > 0) {
+            arg = str.slice(1, str.indexOf('“', 1));
+            str = str.slice(str.indexOf('“', 1) + 1);
+        }
         else if (str.startsWith("'") && str.indexOf("'", 1) > 0) {
             arg = str.slice(1, str.indexOf("'", 1));
             str = str.slice(str.indexOf("'", 1) + 1);

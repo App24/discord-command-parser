@@ -21,12 +21,12 @@ function getArguments(body) {
             str = str.slice(str.indexOf('"', 1) + 1);
         }
         else if (str.startsWith('“') && str.indexOf('”', 1) > 0) {
-            arg = str.slice(1, str.indexOf('”', 1));
-            str = str.slice(str.indexOf('“', 1) + 1);
+            arg = str.slice(1, str.indexOf('“', 1));
+            str = str.slice(str.indexOf('”', 1) + 1);
         }
         else if (str.startsWith('„') && str.indexOf('”', 1) > 0) {
-            arg = str.slice(1, str.indexOf('”', 1));
-            str = str.slice(str.indexOf('„', 1) + 1);
+            arg = str.slice(1, str.indexOf('„', 1));
+            str = str.slice(str.indexOf('”', 1) + 1);
         }
         else if (str.startsWith('„') && str.indexOf('„', 1) > 0) {
             arg = str.slice(1, str.indexOf('„', 1));
@@ -81,6 +81,21 @@ var MessageArgumentReader = /** @class */ (function () {
                 remaining = remaining.slice(this.args[i].length + 2).trim();
             }
             else if (remaining.startsWith("'") && remaining.charAt(this.args[i].length + 1) === "'") {
+                remaining = remaining.slice(this.args[i].length + 2).trim();
+            }
+            else if (remaining.startsWith("“") && remaining.charAt(this.args[i].length + 1) === "“") {
+                remaining = remaining.slice(this.args[i].length + 2).trim();
+            }
+            else if (remaining.startsWith("”") && remaining.charAt(this.args[i].length + 1) === "”") {
+                remaining = remaining.slice(this.args[i].length + 2).trim();
+            }
+            else if (remaining.startsWith("„") && remaining.charAt(this.args[i].length + 1) === "„") {
+                remaining = remaining.slice(this.args[i].length + 2).trim();
+            }
+            else if (remaining.startsWith("„") && remaining.charAt(this.args[i].length + 1) === "”") {
+                remaining = remaining.slice(this.args[i].length + 2).trim();
+            }
+            else if (remaining.startsWith("“") && remaining.charAt(this.args[i].length + 1) === "”") {
                 remaining = remaining.slice(this.args[i].length + 2).trim();
             }
             else if (remaining.startsWith("```") && remaining.slice(this.args[i].length + 3).startsWith("```")) {
